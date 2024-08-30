@@ -76,7 +76,7 @@
             Mati-matian ku membelamu di depan mereka<br><br>
             Mati-matian ku membelamu di depan mereka<br><br>
             Walau sakit tetap ku percaya kau beda dari lainnya<br><br>
-            Habis-habisan ku dibohongi sayang ini tetap sama<br>
+            Habis-habisan ku dibohongi sayang ini tetap sama<br><br>
             Tuhan ini cinta atau bodoh<br><br>
             Bo uh oh<br><br>
             Walau sakit tetap ku percaya kau beda dari lainnya<br><br>
@@ -84,7 +84,7 @@
             Tuhan ini cinta atau bodoh<br><br>
             Ho Tuhan ini cinta atau bodoh</p>
 
-            <audio id="audioPlayer">
+            <audio id="audioPlayer" autoplay>
         <source src="Mati Matian Mahalini.mp3" type="audio/mpeg">
         Your browser does not support the audio tag.
     </audio>
@@ -106,12 +106,12 @@
 
         setInterval(createRainDrop, 100);
 
-      //  const audioPlayer = document.getElementById('audioPlayer');
+        const audioPlayer = document.getElementById('audioPlayer');
 
-      //  audioPlayer.addEventListener('ended', () => {
-      //      audioPlayer.pause();
-      //      audioPlayer.currentTime = 0; // Mengatur waktu ke awal
-      //  });
+        audioPlayer.addEventListener('ended', () => {
+            audioPlayer.pause();
+            audioPlayer.currentTime = 0; // Mengatur waktu ke awal
+        });
     </script>
 </body>
 </html>
