@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rain Animation to 200vh</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 200vh; /* Memastikan halaman cukup tinggi untuk di-scroll */
+            background-color: #2c3e50;
+            overflow-y: scroll;
+            scrollbar-width: thin; /* Firefox */
+            scrollbar-color: #3498db #2c3e50; /* Firefox */
+        }
+        /* Webkit browsers (Chrome, Safari) */
+        ::-webkit-scrollbar {
+            width: 12px;
+            display: none;
+        }
+        ::-webkit-scrollbar-track {
+            background: #2c3e50;
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: #3498db;
+            border-radius: 6px;
+        }
+        .drop {
+            position: absolute;
+            width: 2px;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.7);
+            animation: fall linear;
+            opacity: 0; /* Menyembunyikan tetesan saat dibuat */
+        }
+        @keyframes fall {
+            0% {
+                transform: translateY(0);
+                opacity: 1; /* Tampilkan saat mulai jatuh */
+            }
+            100% {
+                transform: translateY(200vh); /* Jatuh hingga 200vh */
+                opacity: 0; /* Sembunyikan saat mencapai bagian bawah */
+            }
+        }
+        .content {
+            position: relative;
+            z-index: 1;
+            padding: 20px;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>Mati Matian - Mahalini</h1> <br>
+        <p> Kita adalah dua insan penuh cinta <br><br>
+            Di awal tercipta kisah kita<br><br>
+            Manis tuturmu buatku terpana<br><br>
+            Bagiku kau sempurna<br><br>
+            Memang benar semua kata mereka<br><br>
+            Benarku tlah dibutakan cinta<br><br>
+            Tak hanya sekali kau khianati<br><br>
+            Sudah cukup ku tak tahan lagi<br><br>
+            Mati-matian ku membelamu di depan mereka<br><br>
+            Walau sakit tetap ku percaya kau beda dari lainnya<br><br>
+            Habis-habisan ku dibohongi sayang ini tetap sama<br><br>
+            Tuhan ini cinta atau bodoh<br><br>
+            Habis fikir dengan sifatmu itu<br><br>
+            Berulangkali ku maafkan<br><br>
+            Berulang lagi kau lakukan ah<br><br>
+            Satu satunya kebanggaanku<br><br>
+            Kini jadi rasa sakit terdalam<br><br>
+            Mati-matian ku membelamu di depan mereka<br><br>
+            Mati-matian ku membelamu di depan mereka<br><br>
+            Walau sakit tetap ku percaya kau beda dari lainnya<br><br>
+            Habis-habisan ku dibohongi sayang ini tetap sama<br>
+            Tuhan ini cinta atau bodoh<br><br>
+            Bo uh oh<br><br>
+            Walau sakit tetap ku percaya kau beda dari lainnya<br><br>
+            Habis-habisan ku dibohongi sayang ini tetap sama<br><br>
+            Tuhan ini cinta atau bodoh<br><br>
+            Ho Tuhan ini cinta atau bodoh</p>
+
+            <audio id="audioPlayer" autoplay>
+        <source src="Mati Matian Mahalini.mp3" type="audio/mpeg">
+        Your browser does not support the audio tag.
+    </audio>
+    </div>
+    <script>
+        function createRainDrop() {
+            const drop = document.createElement('div');
+            drop.className = 'drop';
+            drop.style.left = Math.random() * window.innerWidth + 'px';
+            drop.style.animationDuration = (Math.random() * 1 + 0.5) + 's'; // Durasi acak
+            drop.style.top = -20 + 'px'; // Memulai dari atas
+            document.body.appendChild(drop);
+
+            // Menghapus tetesan setelah animasi selesai
+            setTimeout(() => {
+                drop.remove();
+            }, 2000); // Waktu sesuai dengan durasi animasi
+        }
+
+        setInterval(createRainDrop, 100);
+
+        const audioPlayer = document.getElementById('audioPlayer');
+
+        audioPlayer.addEventListener('ended', () => {
+            audioPlayer.pause(); // Berhenti setelah selesai
+            audioPlayer.currentTime = 0; // Mengatur waktu ke awal
+        });
+    </script>
+</body>
+</html>
