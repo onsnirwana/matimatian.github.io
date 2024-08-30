@@ -84,7 +84,7 @@
             Tuhan ini cinta atau bodoh<br><br>
             Ho Tuhan ini cinta atau bodoh</p>
 
-            <audio id="audioPlayer" autoplay>
+            <audio id="audioPlayer" autoplay loop muted>
         <source src="Mati Matian Mahalini.mp3" type="audio/mpeg">
         Your browser does not support the audio tag.
     </audio>
@@ -109,7 +109,7 @@
         const audioPlayer = document.getElementById('audioPlayer');
 
         audioPlayer.addEventListener('ended', () => {
-            audioPlayer.pause(); // Berhenti setelah selesai
+            audioPlayer.pause();
             audioPlayer.currentTime = 0; // Mengatur waktu ke awal
         });
     </script>
